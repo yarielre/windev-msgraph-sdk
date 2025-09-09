@@ -1,0 +1,994 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : msgraph-sdk
+ major_version : 30
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x18c04c4300788f9c
+ internal_properties : HgAAAB4AAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1-
+      MSGraphUserInfo is structure
+      	sOdataContext		IS string, serialize = "@odata.context"
+      	businessPhones	IS ARRAY OF STRING
+      	sDisplayName		IS STRING, serialize ="displayName"
+      	sGivenName			IS STRING, serialize = "givenName"
+      	sJobTitle			IS STRING, serialize = "jobTitle"
+      	sMail				IS STRING, serialize = "mail"
+      	sMobilePhone		IS STRING, serialize = "mobilePhone"
+      	sOfficeLocation		IS STRING, serialize = "officeLocation"
+      	sPreferredLanguage	IS STRING, serialize = "preferredLanguage"
+      	sSurname			IS STRING, serialize = "surname"
+      	sUserPrincipalName	IS STRING, serialize = "userPrincipalName"
+      	sId					IS STRING, serialize = "id"
+      END
+      
+      MSGraphEmailAddress is structure
+      	sName		IS STRING, serialize="name"
+      	sAddress	IS STRING, serialize="address"
+      END
+      
+      MSGraphEmailRecipient is structure
+      	emailAddress IS MSGraphEmailAddress, serialize="emailAddress"
+      END
+      
+      MSGraphEmailBody is structure
+      	sContentType	IS STRING, serialize="contentType"
+      	sContent		IS STRING, serialize="content"
+      END
+      MSGraphEmailFlag is structure
+      	sFlagStatus IS STRING, serialize="flagStatus"
+      END
+      
+      MSGraphEmailMessage is structure
+      	sOdataEtag					IS STRING, serialize="@odata.etag"
+      	sId							IS STRING, serialize="id"
+      	sCreatedDateTime			IS STRING, serialize="createdDateTime"
+      	sLastModifiedDateTime		IS STRING, serialize="lastModifiedDateTime"
+      	sChangeKey					IS STRING, serialize="changeKey"
+      	categories					IS ARRAY OF STRING
+      	sReceivedDateTime			IS STRING, serialize="receivedDateTime"
+      	sSentDateTime				IS STRING, serialize="sentDateTime"
+      	bHasAttachments				IS BOOLEAN, serialize="hasAttachments"
+      	sInternetMessageId			IS STRING, serialize="internetMessageId"
+      	sSubject					IS STRING, serialize="subject"
+      	sBodyPreview				IS STRING, serialize="bodyPreview"
+      	sImportance					IS STRING, serialize="importance"
+      	sParentFolderId				IS STRING, serialize="parentFolderId"
+      	sConversationId				IS STRING, serialize="conversationId"
+      	sConversationIndex			IS STRING, serialize="conversationIndex"
+      	bIsDeliveryReceiptRequested	IS BOOLEAN, serialize="isDeliveryReceiptRequested"
+      	bIsReadReceiptRequested		IS BOOLEAN, serialize="isReadReceiptRequested"
+      	bIsRead						IS BOOLEAN, serialize="isRead"
+      	bIsDraft					IS BOOLEAN, serialize="isDraft"
+      	sWebLink					IS STRING, serialize="webLink"
+      	sInferenceClassification	IS STRING, serialize="inferenceClassification"
+      	body						IS MSGraphEmailBody, serialize="body"
+      	sender						IS MSGraphEmailRecipient, serialize="sender"
+      	from						IS MSGraphEmailRecipient, serialize="from"
+      	toRecipients				IS ARRAY OF MSGraphEmailRecipient
+      	ccRecipients				IS ARRAY OF MSGraphEmailRecipient
+      	bccRecipients				IS ARRAY OF MSGraphEmailRecipient
+      	replyTo						IS ARRAY OF MSGraphEmailRecipient
+      	flag						IS MSGraphEmailFlag, serialize="flag"
+      END
+      
+      MSGraphEmailMessageList is Structure
+      	sOdataContext	is string, serialize="@odata.context"
+      	value		is array of MSGraphEmailMessage JSON
+      	sOdataNextLink	is string, serialize="@odata.nextLink"
+      end
+      
+      MSGRaphSingleEmailMessage is structure
+      	sOdataContext				IS STRING, serialize="@odata.context"
+      	sOdataEtag					IS STRING, serialize="@odata.etag"
+      	sId							IS STRING, serialize="id"
+      	sCreatedDateTime			IS STRING, serialize="createdDateTime"
+      	sLastModifiedDateTime		IS STRING, serialize="lastModifiedDateTime"
+      	sChangeKey					IS STRING, serialize="changeKey"
+      	categories					IS ARRAY OF STRING
+      	sReceivedDateTime			IS STRING, serialize="receivedDateTime"
+      	sSentDateTime				IS STRING, serialize="sentDateTime"
+      	bHasAttachments				IS BOOLEAN, serialize="hasAttachments"
+      	sInternetMessageId			IS STRING, serialize="internetMessageId"
+      	sSubject					IS STRING, serialize="subject"
+      	sBodyPreview				IS STRING, serialize="bodyPreview"
+      	sImportance					IS STRING, serialize ="importance"
+      	sParentFolderId				IS STRING, serialize="parentFolderId"
+      	sConversationId				IS STRING, serialize="conversationId"
+      	sConversationIndex			IS STRING, serialize="conversationIndex"
+      	bIsDeliveryReceiptRequested	IS BOOLEAN, serialize = "isDeliveryReceiptRequested"
+      	bIsReadReceiptRequested		IS BOOLEAN, serialize = "isReadReceiptRequested"
+      	bIsRead						IS BOOLEAN, serialize = "isRead"
+      	bIsDraft					IS BOOLEAN, Serialize = "isDraft"
+      	sWebLink					IS STRING, serialize="webLink"
+      	sInferenceClassification	IS STRING, serialize="inferenceClassification"
+      	body						IS MSGraphEmailBody, Serialize = "body"
+      	sender						IS MSGraphEmailRecipient, serialize	= "sender"
+      	from						IS MSGraphEmailRecipient, serialize	= "from"
+      	toRecipients				IS ARRAY OF MSGraphEmailRecipient
+      	ccRecipients				IS ARRAY OF MSGraphEmailRecipient
+      	bccRecipients				IS ARRAY OF MSGraphEmailRecipient
+      	replyTo						IS Array of MSGraphEmailRecipient
+      	flag						IS MSGraphEmailFlag, serialize	= "flag"
+      END
+      
+      MSGraphEmailMessageAttachment is structure
+      	sOdataType				IS STRING, serialize="@odata.type"
+      	sOdataMediaContentType	IS STRING, serialize="@odata.mediaContentType"
+      	sId						IS STRING, serialize="id"
+      	sLastModifiedDateTime	IS STRING, serialize="lastModifiedDateTime"
+      	sName					IS STRING, serialize="name"
+      	sContentType			IS STRING, serialize="contentType"
+      	nSize					IS INT, serialize="size"
+      	bIsInline				IS BOOLEAN, serialize	= "isInline"
+      	sContentId				IS STRING, serialize="contentId"
+      	sContentLocation		IS STRING, serialize="contentLocation"
+      	sContentBytes			IS STRING, serialize="contentBytes"
+      END
+      
+      MSGraphEmailMessageAttachmentList is structure
+      	sOdataContext	IS STRING, Serialize="@odata.context"
+      	value		IS ARRAY OF MSGraphEmailMessageAttachment
+      END
+      
+      MSGraphContext is structure
+      	vTenantId		is string, serialize="tenant_id"
+      	vClientID		is string, serialize="client_id"
+      	vClientSecret	is string, serialize="client_secret_id"
+      	vTokenPath		is string, serialize="token_path"
+      	vForceClear		is boolean, serialize="force_clear"
+      end
+      
+      gMSGraphContext is MSGraphContext
+     type : 720896
+  procedures :
+   -
+     name : Logger_WriteToFile
+     procedure_id : 1783509303093202844
+     type_code : 15
+     code : |1-
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //Logger_WriteToFile (<sLineToWrite> is string)
+      //
+      // Parameters:
+      //	sLineToWrite (ANSI string): 
+      // Example:
+      // <Specify a usage example>
+      //
+      procedure Logger_WriteToFile(sLineToWrite is string)
+      trace(fCurrentDir)
+      LogPath			is string	= fCurrentDir() + "\EmailSender.log"; 
+      if NOT fFileExist(LogPath) THEN
+      	fCreate(LogPath)
+      END
+      nFileNum		is int		= fOpen(LogPath, foAdd)
+      sLineToWrite = DateToString(Today(), "YYYY MM DD")+ "/" + TimeToString(TimeSys(), "HH:MM:SS") + " - " + sLineToWrite
+      fWriteLine(nFileNum, sLineToWrite)
+      fClose(nFileNum)
+     type : 458752
+   -
+     name : MSGraph_SendRawEmail
+     procedure_id : 1783509303093268380
+     type_code : 15
+     code : |1-
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_SendRawEmail (<authToken> is AuthToken)
+      //
+      // Parameters:
+      //	authToken (AuthToken): <specify the role of authToken>
+      // Example:
+      // <Specify a usage example>
+      //
+      //	Token (AuthToken):
+      procedure MSGraph_SendRawEmail(authToken is AuthToken)
+      
+      req				is httpRequest
+      req.ContentType	= typeMimeJSON
+      req.Method		= httpPost
+      req.URL			= "https://graph.microsoft.com/v1.0/me/sendMail"
+      req.AuthToken	= authToken // Authentication token
+      
+      msg is ANSI string = [
+      	{
+      		"message": 
+      		{
+      			"subject": "Using MS Entra ID OAuth2",
+      			 "body": {
+      			      "contentType": "Text",
+      			      "content": "Meet me for launch!. The new cafeteria is open. Email sent using MS Entra ID OAuth2"
+      	    	},
+      	    	"toRecipients":[
+      	    	{
+      	    			"emailAddress": {
+                			"address": "ftaiana@orionedp.ch",
+                			}
+      	    	},
+      	    	{
+      	    			"emailAddress": {
+                			"address": "ftaiana@orionedp.ch"
+                			}		
+      	    	}],
+      	    	"ccRecipients": [{
+      	    	  	"emailAddress": {
+                			"address": "yariel.re@gmail.com"
+              		}
+      	    	}],
+      	    	"attachments": [{
+      		    	"@odata.type": "#microsoft.graph.fileAttachment",
+      			    "name": "nuovo-attachment.txt",
+      			    "contentType": "text/plain",
+      			    "contentBytes": "SGVsbG8gV29ybGQh"
+      	    	}],
+      		}
+      	}
+      ]
+      
+      req.Content 	= StringToJSON(msg)
+      
+      HTTPresponse is httpResponse = HTTPSend(req)
+      
+      Logger_WriteToFile("Email sent request response code: " + HTTPresponse.StatusCode);
+      
+      
+      RETURN HTTPresponse.StatusCode
+     type : 458752
+   -
+     name : MSGraph_SendMessage
+     procedure_id : 1783509303093333916
+     type_code : 15
+     code : |1-
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_SendMessage (<iMSGraphContext> is MSGraphContext, <iMessage> is Email)
+      //
+      // Parameters:
+      //	iMSGraphContext (MSGraphContext): <specify the role of authToken>
+      //	iMessage (Email): <specify the role of Email>
+      // Example:
+      // <Specify a usage example>
+      //
+      //	Token (AuthToken):
+      //	myMessage (Email - default value=0): <specify the role of mail>
+      procedure MSGraph_SendMessage(iMSGraphContext is MSGraphContext, iMessage is Email)
+      
+      vToken is AuthToken = MSGraph_GetAuthToken(iMSGraphContext)
+      
+      iMessage.BuildSource(emailOptionEncodeHeader)
+      iMessageBuffer is  Buffer
+      iMessageBuffer	= iMessage.Source
+      
+      req				is httpRequest
+      req.ContentType	= typeMimeText
+      req.Method		= httpPost
+      req.URL			= "https://graph.microsoft.com/v1.0/me/sendMail"
+      req.AuthToken	= vToken // Authentication token
+      req.Content 	= iMessageBuffer.Encode(encodeBASE64)
+      
+      HTTPresponse is httpResponse = HTTPSend(req)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errFullDetails))
+      END
+      
+      Logger_WriteToFile("Email sent request response code: " + HTTPresponse.StatusCode);
+      
+      RETURN HTTPresponse.StatusCode
+     type : 458752
+   -
+     name : GoogleApi_GetAuthToken
+     procedure_id : 1783509303093399452
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] GoogleApi_GetAuthToken (<iClientId> is string, <iClientSecret> is string, <iTokenFile> is string [, <iRefresh> is boolean])
+      //
+      // Parameters:
+      //	iClientId (ANSI string): <specify the role of iClientId>
+      //	iClientSecret (ANSI string): <specify the role of ClientSecret>
+      //	iTokenFile (ANSI string): <specify the role of TokenFile>
+      //	iRefresh (boolean - default value=0): <specify the role of iRefresh>
+      // Example:
+      // <Specify a usage example>
+      //
+      // Return value:
+      procedure GoogleApi_GetAuthToken(iClientId is string, iClientSecret is string, iTokenFile is string, iRefresh is boolean = false)
+      
+      GoogleOAuth2Params is OAuth2Parameters
+      GoogleOAuth2Params.ClientID				= iClientId 
+      GoogleOAuth2Params.ClientSecret			= iClientSecret
+      GoogleOAuth2Params.AuthURL				= "https://accounts.google.com/o/oauth2/v2/auth"
+      GoogleOAuth2Params.TokenURL				= "https://oauth2.googleapis.com/token"
+      GoogleOAuth2Params.Scope				= "https://mail.google.com"
+      GoogleOAuth2Params.RedirectionURL		= "http://localhost:5011"
+      
+      
+      vTokenPath is string  = OnTestMode() ? "S:\orion\WD7EXE\"+iTokenFile ELSE CompleteDir(fExeDir())+iTokenFile
+      bufferMyGoogleToken	is Buffer
+      MyGoogleToken			is AuthToken
+      
+      if iRefresh =True THEN
+      	fDelete(vTokenPath)
+      END
+      
+      WHEN EXCEPTION IN
+      
+      	bufferMyGoogleToken = fLoadBuffer(vTokenPath)
+      	Désérialise(MyGoogleToken,bufferMyGoogleToken,psdBinary)
+      	Trace("Token deserializzato e correttamente recuperato!")
+      
+      	IF (MyGoogleToken.DateExpiration -5 min < DateTimeLocalToUTC(SysDateTime())) _AND_
+      		MyGoogleToken.Refresh <> "" THEN
+      
+      		Trace("Token prossimo alla scadenza!. Il token sara' aggiornato!")
+      		MyGoogleToken = AuthRefreshToken(MyGoogleToken)
+      
+      		IF MyGoogleToken <> Null _AND_ MyGoogleToken.Valid THEN
+      			Serialize(MyGoogleToken, bufferMyGoogleToken, psdBinary)
+      			fSaveBuffer(vTokenPath, bufferMyGoogleToken)
+      			Trace("Token aggiornato e serializzato!")
+      		ELSE
+      			ExceptionThrow(1)
+      		END
+      	END
+      
+      DO
+      	MyGoogleToken = AuthIdentify(GoogleOAuth2Params)
+      
+      	IF MyGoogleToken <> Null THEN
+      		IF ErrorOccurred THEN
+      			//
+      		ELSE
+      			Serialize(MyGoogleToken, bufferMyGoogleToken, psdBinary)
+      			fSaveBuffer(vTokenPath, bufferMyGoogleToken)
+      		END
+      	END
+      
+      END
+      
+      return MyGoogleToken
+     type : 458752
+   -
+     name : GoogleApi_SendRFCMessage
+     procedure_id : 1783509303093464988
+     type_code : 15
+     code : |1-
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] GoogleApi_SendRFCMessage (<authToken> is AuthToken)
+      //
+      // Parameters:
+      //	authToken (AuthToken): 
+      // Example:
+      // <Specify a usage example>
+      //
+      //	myMessage (Email - default value=0): <specify the role of myMessage>
+      procedure GoogleApi_SendRFCMessage(authToken is AuthToken)
+      
+      
+      req				is httpRequest
+      req.ContentType	= "message/rfc822"
+      req.Method		= httpPost
+      req.URL			= "https://www.googleapis.com/upload/gmail/v1/users/me/messages/send?uploadType=multipart"
+      req.AuthToken	= authToken
+      
+      msg is ANSI string = [
+      Content-Type: multipart/mixed; boundary=foo_bar_baz
+      MIME-Version: 1-0
+      From  : yariel.re@gmail.com
+      To    : yrodriguez@orionedp.ch, yariel.re@gmail.com
+      Subject     : Saying Hello
+      
+      This is a message just to say hello with attachments.
+      So, "Hello Attachments"
+      
+      --foo_bar_baz
+      Content-Type: application/pdf
+      MIME-Version: 1-0
+      Content-Transfer-Encoding: base64
+      Content-Disposition: attachment; filename="Prova n.pdf"
+      
+      JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi9NYXJrSW5mbzw8L01hcmtlZCB0cnVlPj4vTWV0YWRhdGEgMjcgMCBSL1ZpZXdlclByZWZlcmVuY2VzIDI4IDAgUj4+DQplbmRvYmoNCjIgMCBvYmoNCjw8L1R5cGUvUGFnZXMvQ291bnQgMS9LaWRzWyAzIDAgUl0gPj4NCmVuZG9iag0KMyAwIG9iag0KPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjEgNSAwIFIvRjIgMTIgMCBSPj4vRXh0R1N0YXRlPDwvR1MxMCAxMCAwIFIvR1MxMSAxMSAwIFI+Pi9Qcm9jU2V0Wy9QREYvVGV4dC9JbWFnZUIvSW1hZ2VDL0ltYWdlSV0gPj4vTWVkaWFCb3hbIDAgMCA1OTUuMzIgODQxLjkyXSAvQ29udGVudHMgNCAwIFIvR3JvdXA8PC9UeXBlL0dyb3VwL1MvVHJhbnNwYXJlbmN5L0NTL0RldmljZVJHQj4+L1RhYnMvUy9TdHJ1Y3RQYXJlbnRzIDA+Pg0KZW5kb2JqDQo0IDAgb2JqDQo8PC9GaWx0ZXIvRmxhdGVEZWNvZGUvTGVuZ3RoIDIwOD4+DQpzdHJlYW0NCnicrY5La8NADITvC/sf5ugEupY269oLZiG2E9NQH4odcig95JD6VJPH/4coDwKG9tQIhDQw0nyI2/12QJ7HTflWgeL37dAj2g0v63YSAoqqxEErMnSpLEsZhMQnZmaROTbe4rjTajPFoFXRaRUvGcyGHLpvrS5uAiO1hqxDmniTZOh+xFe3TOhP8hv9TfJd1lp95hLmpNPgZX314QvdSquFJHxo9QQib42nEdGV45E+L4KzMolpVnlBsP9CsL8gMMv
+      FXwgRJqM8LJoSZ01jVAINCmVuZHN0cmVhbQ0KZW5kb2JqDQo1IDAgb2JqDQo8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMC9CYXNlRm9udC9CQ0RFRUUrQXB0b3MvRW5jb2RpbmcvSWRlbnRpdHktSC9EZXNjZW5kYW50Rm9udHMgNiAwIFIvVG9Vbmljb2RlIDIzIDAgUj4+DQplbmRvYmoNCjYgMCBvYmoNClsgNyAwIFJdIA0KZW5kb2JqDQo3IDAgb2JqDQo8PC9CYXNlRm9udC9CQ0RFRUUrQXB0b3MvU3VidHlwZS9DSURGb250VHlwZTIvVHlwZS9Gb250L0NJRFRvR0lETWFwL0lkZW50aXR5L0RXIDEwMDAvQ0lEU3lzdGVtSW5mbyA4IDAgUi9Gb250RGVzY3JpcHRvciA5IDAgUi9XIDI1IDAgUj4+DQplbmRvYmoNCjggMCBvYmoNCjw8L09yZGVyaW5nKElkZW50aXR5KSAvUmVnaXN0cnkoQWRvYmUpIC9TdXBwbGVtZW50IDA+Pg0KZW5kb2JqDQo5IDAgb2JqDQo8PC9UeXBlL0ZvbnREZXNjcmlwdG9yL0ZvbnROYW1lL0JDREVFRStBcHRvcy9GbGFncyAzMi9JdGFsaWNBbmdsZSAwL0FzY2VudCA5MzkvRGVzY2VudCAtMjgyL0NhcEhlaWdodCA5MzkvQXZnV2lkdGggNTYxL01heFdpZHRoIDE2ODIvRm9udFdlaWdodCA0MDAvWEhlaWdodCAyNTAvU3RlbVYgNTYvRm9udEJCb3hbIC01MDAgLTI4MiAxMTgyIDkzOV0gL0ZvbnRGaWxlMiAyNCAwIFI+Pg0KZW5kb2JqDQoxMCAwIG9iag0KPDwvVHlwZS9FeHRHU3RhdGUvQk0vTm9ybWFsL2NhIDE+Pg0KZW5kb2JqDQoxMSAwIG9iag0KPDwvVHlwZS9FeHRHU3RhdGUvQk0vTm9ybWFsL0
+      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
+      ZdICAxMDVbIDczMl0gIDEzMlsgNTc3XSAgMTM1WyA2MDZdICAxNzFbIDU4NV0gIDk4NVsgMjAzXSBdIA0KZW5kb2JqDQoyNiAwIG9iag0KWyAyMDNdIA0KZW5kb2JqDQoyNyAwIG9iag0KPDwvVHlwZS9NZXRhZGF0YS9TdWJ0eXBlL1hNTC9MZW5ndGggMzEwNz4+DQpzdHJlYW0NCjw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+PHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iMy4xLTcwMSI+CjxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiICB4bWxuczpwZGY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8iPgo8cGRmOlByb2R1Y2VyPk1pY3Jvc29mdMKuIFdvcmQgZm9yIE1pY3Jvc29mdCAzNjU8L3BkZjpQcm9kdWNlcj48L3JkZjpEZXNjcmlwdGlvbj4KPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+CjxkYzpjcmVhdG9yPjxyZGY6U2VxPjxyZGY6bGk+WWFyaWVsIFJvZHJpZ3VleiAtIE9yaW9uIGVkcCBTQTwvcmRmOmxpPjwvcmRmOlNlcT48L2RjOmNyZWF0b3I+PC9yZGY6RGVzY3JpcHRpb24+CjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iPgo8e
+      G1wOkNyZWF0b3JUb29sPk1pY3Jvc29mdMKuIFdvcmQgZm9yIE1pY3Jvc29mdCAzNjU8L3htcDpDcmVhdG9yVG9vbD48eG1wOkNyZWF0ZURhdGU+MjAyNC0wMS0yNVQxMToxMjozMyswMTowMDwveG1wOkNyZWF0ZURhdGU+PHhtcDpNb2RpZnlEYXRlPjIwMjQtMDEtMjVUMTE6MTI6MzMrMDE6MDA8L3htcDpNb2RpZnlEYXRlPjwvcmRmOkRlc2NyaXB0aW9uPgo8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiAgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iPgo8eG1wTU06RG9jdW1lbnRJRD51dWlkOkIwQjQ0ODIwLUE0QzMtNDkwMy04MzlGLUVFQzFFQkYxMDU3RTwveG1wTU06RG9jdW1lbnRJRD48eG1wTU06SW5zdGFuY2VJRD51dWlkOkIwQjQ0ODIwLUE0QzMtNDkwMy04MzlGLUVFQzFFQkYxMDU3RTwveG1wTU06SW5zdGFuY2VJRD48L3JkZjpEZXNjcmlwdGlvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+      ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+      gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC
+      AgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCjwvcmRmOlJERj48L3g6eG1wbWV0YT48P3hwYWNrZXQgZW5kPSJ3Ij8+DQplbmRzdHJlYW0NCmVuZG9iag0KMjggMCBvYmoNCjw8L0Rpc3BsYXlEb2NUaXRsZSB0cnVlPj4NCmVuZG9iag0KMjkgMCBvYmoNCjw8L1R5cGUvWFJlZi9TaXplIDI5L1dbIDEgNCAyXSAvUm9vdCAxIDAgUi9JbmZvIDE0IDAgUi9JRFs8MjA0OEI0QjBDM0E0MDM0OTgzOUZFRUMxRUJGMTA1N0U+PDIwNDhCNEIwQzNBNDAzNDk4MzlGRUVDMUVCRjEwNTdFPl0gL0ZpbHRlci9GbGF0ZURlY29kZS9MZW5ndGggMTEwPj4NCnN0cmVhbQ0KeJxjYACC//8ZgaQgAwOIWgyhboMpxu9gihkixzwRQq0FUyweEAoiyFoHobZAqFdgig0ix17PwMAENFOMgQlCMUMoFgjFCqEYIRRUJRtQH8cKsHYuKzDF3QmmNK6CKU17CBUFpkwvMDAAAK8XD04NCmVuZHN0cmVhbQ0KZW5kb2JqDQp4cmVmDQowIDMwDQowMDAwMDAwMDE1IDY1NTM1IGYNCjAwMDAwMDAwMTcgMDAwMDAgbg0KMDAwMDAwMDE2MyAwMDAwMCBuDQowMDAwMDAwMjE5IDAwMDAwIG4NCjAwMDAwMDA1MDMgM
+      DAwMDAgbg0KMDAwMDAwMDc4NSAwMDAwMCBuDQowMDAwMDAwOTEzIDAwMDAwIG4NCjAwMDAwMDA5NDEgMDAwMDAgbg0KMDAwMDAwMTA5NiAwMDAwMCBuDQowMDAwMDAxMTY5IDAwMDAwIG4NCjAwMDAwMDE0MDYgMDAwMDAgbg0KMDAwMDAwMTQ2MCAwMDAwMCBuDQowMDAwMDAxNTE0IDAwMDAwIG4NCjAwMDAwMDE2ODEgMDAwMDAgbg0KMDAwMDAwMTkxOSAwMDAwMCBuDQowMDAwMDAwMDE2IDY1NTM1IGYNCjAwMDAwMDAwMTcgNjU1MzUgZg0KMDAwMDAwMDAxOCA2NTUzNSBmDQowMDAwMDAwMDE5IDY1NTM1IGYNCjAwMDAwMDAwMjAgNjU1MzUgZg0KMDAwMDAwMDAyMSA2NTUzNSBmDQowMDAwMDAwMDIyIDY1NTM1IGYNCjAwMDAwMDAwMDAgNjU1MzUgZg0KMDAwMDAwMjYxOCAwMDAwMCBuDQowMDAwMDAyOTUzIDAwMDAwIG4NCjAwMDAwMTA0NTMgMDAwMDAgbg0KMDAwMDAxMDU1OSAwMDAwMCBuDQowMDAwMDEwNTg2IDAwMDAwIG4NCjAwMDAwMTM3NzYgMDAwMDAgbg0KMDAwMDAxMzgyMSAwMDAwMCBuDQp0cmFpbGVyDQo8PC9TaXplIDMwL1Jvb3QgMSAwIFIvSW5mbyAxNCAwIFIvSURbPDIwNDhCNEIwQzNBNDAzNDk4MzlGRUVDMUVCRjEwNTdFPjwyMDQ4QjRCMEMzQTQwMzQ5ODM5RkVFQzFFQkYxMDU3RT5dID4+DQpzdGFydHhyZWYNCjE0MTMyDQolJUVPRg0KeHJlZg0KMCAwDQp0cmFpbGVyDQo8PC9TaXplIDMwL1Jvb3QgMSAwIFIvSW5mbyAxNCAwIFIvSURbPDIwNDhCNEIwQzNBNDAzNDk4MzlGRUVDMUVCRjEwNTdFPjwyMDQ4
+      QjRCMEMzQTQwMzQ5ODM5RkVFQzFFQkYxMDU3RT5dIC9QcmV2IDE0MTMyL1hSZWZTdG0gMTM4MjE+Pg0Kc3RhcnR4cmVmDQoxNDg4OQ0KJSVFT0Y=
+      
+      
+      Content-Type: application/pdf
+      MIME-Version: 1-0
+      Content-Transfer-Encoding: base64
+      Content-Disposition: attachment; filename="Prova n.pdf"
+      
+      JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbikgL1N0cnVjdFRyZWVSb290IDE1IDAgUi9NYXJrSW5mbzw8L01hcmtlZCB0cnVlPj4vTWV0YWRhdGEgMjcgMCBSL1ZpZXdlclByZWZlcmVuY2VzIDI4IDAgUj4+DQplbmRvYmoNCjIgMCBvYmoNCjw8L1R5cGUvUGFnZXMvQ291bnQgMS9LaWRzWyAzIDAgUl0gPj4NCmVuZG9iag0KMyAwIG9iag0KPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9SZXNvdXJjZXM8PC9Gb250PDwvRjEgNSAwIFIvRjIgMTIgMCBSPj4vRXh0R1N0YXRlPDwvR1MxMCAxMCAwIFIvR1MxMSAxMSAwIFI+Pi9Qcm9jU2V0Wy9QREYvVGV4dC9JbWFnZUIvSW1hZ2VDL0ltYWdlSV0gPj4vTWVkaWFCb3hbIDAgMCA1OTUuMzIgODQxLjkyXSAvQ29udGVudHMgNCAwIFIvR3JvdXA8PC9UeXBlL0dyb3VwL1MvVHJhbnNwYXJlbmN5L0NTL0RldmljZVJHQj4+L1RhYnMvUy9TdHJ1Y3RQYXJlbnRzIDA+Pg0KZW5kb2JqDQo0IDAgb2JqDQo8PC9GaWx0ZXIvRmxhdGVEZWNvZGUvTGVuZ3RoIDIwOD4+DQpzdHJlYW0NCnicrY5La8NADITvC/sf5ugEupY269oLZiG2E9NQH4odcig95JD6VJPH/4coDwKG9tQIhDQw0nyI2/12QJ7HTflWgeL37dAj2g0v63YSAoqqxEErMnSpLEsZhMQnZmaROTbe4rjTajPFoFXRaRUvGcyGHLpvrS5uAiO1hqxDmniTZOh+xFe3TOhP8hv9TfJd1lp95hLmpNPgZX314QvdSquFJHxo9QQib42nEdGV45E+L4KzMolpVnlBsP9CsL8gMMv
+      FXwgRJqM8LJoSZ01jVAINCmVuZHN0cmVhbQ0KZW5kb2JqDQo1IDAgb2JqDQo8PC9UeXBlL0ZvbnQvU3VidHlwZS9UeXBlMC9CYXNlRm9udC9CQ0RFRUUrQXB0b3MvRW5jb2RpbmcvSWRlbnRpdHktSC9EZXNjZW5kYW50Rm9udHMgNiAwIFIvVG9Vbmljb2RlIDIzIDAgUj4+DQplbmRvYmoNCjYgMCBvYmoNClsgNyAwIFJdIA0KZW5kb2JqDQo3IDAgb2JqDQo8PC9CYXNlRm9udC9CQ0RFRUUrQXB0b3MvU3VidHlwZS9DSURGb250VHlwZTIvVHlwZS9Gb250L0NJRFRvR0lETWFwL0lkZW50aXR5L0RXIDEwMDAvQ0lEU3lzdGVtSW5mbyA4IDAgUi9Gb250RGVzY3JpcHRvciA5IDAgUi9XIDI1IDAgUj4+DQplbmRvYmoNCjggMCBvYmoNCjw8L09yZGVyaW5nKElkZW50aXR5KSAvUmVnaXN0cnkoQWRvYmUpIC9TdXBwbGVtZW50IDA+Pg0KZW5kb2JqDQo5IDAgb2JqDQo8PC9UeXBlL0ZvbnREZXNjcmlwdG9yL0ZvbnROYW1lL0JDREVFRStBcHRvcy9GbGFncyAzMi9JdGFsaWNBbmdsZSAwL0FzY2VudCA5MzkvRGVzY2VudCAtMjgyL0NhcEhlaWdodCA5MzkvQXZnV2lkdGggNTYxL01heFdpZHRoIDE2ODIvRm9udFdlaWdodCA0MDAvWEhlaWdodCAyNTAvU3RlbVYgNTYvRm9udEJCb3hbIC01MDAgLTI4MiAxMTgyIDkzOV0gL0ZvbnRGaWxlMiAyNCAwIFI+Pg0KZW5kb2JqDQoxMCAwIG9iag0KPDwvVHlwZS9FeHRHU3RhdGUvQk0vTm9ybWFsL2NhIDE+Pg0KZW5kb2JqDQoxMSAwIG9iag0KPDwvVHlwZS9FeHRHU3RhdGUvQk0vTm9ybWFsL0
+      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
+      ZdICAxMDVbIDczMl0gIDEzMlsgNTc3XSAgMTM1WyA2MDZdICAxNzFbIDU4NV0gIDk4NVsgMjAzXSBdIA0KZW5kb2JqDQoyNiAwIG9iag0KWyAyMDNdIA0KZW5kb2JqDQoyNyAwIG9iag0KPDwvVHlwZS9NZXRhZGF0YS9TdWJ0eXBlL1hNTC9MZW5ndGggMzEwNz4+DQpzdHJlYW0NCjw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+PHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iMy4xLTcwMSI+CjxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiICB4bWxuczpwZGY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8iPgo8cGRmOlByb2R1Y2VyPk1pY3Jvc29mdMKuIFdvcmQgZm9yIE1pY3Jvc29mdCAzNjU8L3BkZjpQcm9kdWNlcj48L3JkZjpEZXNjcmlwdGlvbj4KPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+CjxkYzpjcmVhdG9yPjxyZGY6U2VxPjxyZGY6bGk+WWFyaWVsIFJvZHJpZ3VleiAtIE9yaW9uIGVkcCBTQTwvcmRmOmxpPjwvcmRmOlNlcT48L2RjOmNyZWF0b3I+PC9yZGY6RGVzY3JpcHRpb24+CjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iPgo8e
+      G1wOkNyZWF0b3JUb29sPk1pY3Jvc29mdMKuIFdvcmQgZm9yIE1pY3Jvc29mdCAzNjU8L3htcDpDcmVhdG9yVG9vbD48eG1wOkNyZWF0ZURhdGU+MjAyNC0wMS0yNVQxMToxMjozMyswMTowMDwveG1wOkNyZWF0ZURhdGU+PHhtcDpNb2RpZnlEYXRlPjIwMjQtMDEtMjVUMTE6MTI6MzMrMDE6MDA8L3htcDpNb2RpZnlEYXRlPjwvcmRmOkRlc2NyaXB0aW9uPgo8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiAgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iPgo8eG1wTU06RG9jdW1lbnRJRD51dWlkOkIwQjQ0ODIwLUE0QzMtNDkwMy04MzlGLUVFQzFFQkYxMDU3RTwveG1wTU06RG9jdW1lbnRJRD48eG1wTU06SW5zdGFuY2VJRD51dWlkOkIwQjQ0ODIwLUE0QzMtNDkwMy04MzlGLUVFQzFFQkYxMDU3RTwveG1wTU06SW5zdGFuY2VJRD48L3JkZjpEZXNjcmlwdGlvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+      ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+      gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC
+      AgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCjwvcmRmOlJERj48L3g6eG1wbWV0YT48P3hwYWNrZXQgZW5kPSJ3Ij8+DQplbmRzdHJlYW0NCmVuZG9iag0KMjggMCBvYmoNCjw8L0Rpc3BsYXlEb2NUaXRsZSB0cnVlPj4NCmVuZG9iag0KMjkgMCBvYmoNCjw8L1R5cGUvWFJlZi9TaXplIDI5L1dbIDEgNCAyXSAvUm9vdCAxIDAgUi9JbmZvIDE0IDAgUi9JRFs8MjA0OEI0QjBDM0E0MDM0OTgzOUZFRUMxRUJGMTA1N0U+PDIwNDhCNEIwQzNBNDAzNDk4MzlGRUVDMUVCRjEwNTdFPl0gL0ZpbHRlci9GbGF0ZURlY29kZS9MZW5ndGggMTEwPj4NCnN0cmVhbQ0KeJxjYACC//8ZgaQgAwOIWgyhboMpxu9gihkixzwRQq0FUyweEAoiyFoHobZAqFdgig0ix17PwMAENFOMgQlCMUMoFgjFCqEYIRRUJRtQH8cKsHYuKzDF3QmmNK6CKU17CBUFpkwvMDAAAK8XD04NCmVuZHN0cmVhbQ0KZW5kb2JqDQp4cmVmDQowIDMwDQowMDAwMDAwMDE1IDY1NTM1IGYNCjAwMDAwMDAwMTcgMDAwMDAgbg0KMDAwMDAwMDE2MyAwMDAwMCBuDQowMDAwMDAwMjE5IDAwMDAwIG4NCjAwMDAwMDA1MDMgM
+      DAwMDAgbg0KMDAwMDAwMDc4NSAwMDAwMCBuDQowMDAwMDAwOTEzIDAwMDAwIG4NCjAwMDAwMDA5NDEgMDAwMDAgbg0KMDAwMDAwMTA5NiAwMDAwMCBuDQowMDAwMDAxMTY5IDAwMDAwIG4NCjAwMDAwMDE0MDYgMDAwMDAgbg0KMDAwMDAwMTQ2MCAwMDAwMCBuDQowMDAwMDAxNTE0IDAwMDAwIG4NCjAwMDAwMDE2ODEgMDAwMDAgbg0KMDAwMDAwMTkxOSAwMDAwMCBuDQowMDAwMDAwMDE2IDY1NTM1IGYNCjAwMDAwMDAwMTcgNjU1MzUgZg0KMDAwMDAwMDAxOCA2NTUzNSBmDQowMDAwMDAwMDE5IDY1NTM1IGYNCjAwMDAwMDAwMjAgNjU1MzUgZg0KMDAwMDAwMDAyMSA2NTUzNSBmDQowMDAwMDAwMDIyIDY1NTM1IGYNCjAwMDAwMDAwMDAgNjU1MzUgZg0KMDAwMDAwMjYxOCAwMDAwMCBuDQowMDAwMDAyOTUzIDAwMDAwIG4NCjAwMDAwMTA0NTMgMDAwMDAgbg0KMDAwMDAxMDU1OSAwMDAwMCBuDQowMDAwMDEwNTg2IDAwMDAwIG4NCjAwMDAwMTM3NzYgMDAwMDAgbg0KMDAwMDAxMzgyMSAwMDAwMCBuDQp0cmFpbGVyDQo8PC9TaXplIDMwL1Jvb3QgMSAwIFIvSW5mbyAxNCAwIFIvSURbPDIwNDhCNEIwQzNBNDAzNDk4MzlGRUVDMUVCRjEwNTdFPjwyMDQ4QjRCMEMzQTQwMzQ5ODM5RkVFQzFFQkYxMDU3RT5dID4+DQpzdGFydHhyZWYNCjE0MTMyDQolJUVPRg0KeHJlZg0KMCAwDQp0cmFpbGVyDQo8PC9TaXplIDMwL1Jvb3QgMSAwIFIvSW5mbyAxNCAwIFIvSURbPDIwNDhCNEIwQzNBNDAzNDk4MzlGRUVDMUVCRjEwNTdFPjwyMDQ4
+      QjRCMEMzQTQwMzQ5ODM5RkVFQzFFQkYxMDU3RT5dIC9QcmV2IDE0MTMyL1hSZWZTdG0gMTM4MjE+Pg0Kc3RhcnR4cmVmDQoxNDg4OQ0KJSVFT0Y=
+      
+      --foo_bar_baz--
+      ]
+      
+      
+      req.Content 	= msg
+      
+      HTTPresponse is httpResponse = HTTPSend(req)
+      
+      result HTTPresponse.StatusCode;
+     type : 458752
+   -
+     name : MSGraph_GetAuthToken
+     procedure_id : 1783509303093530524
+     type_code : 15
+     code : |1-
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_GetAuthToken (<iMSGraphContext> is MSGraphContext [, <iForceClear> is boolean])
+      //
+      // Parameters:
+      //	iMSGraphContext (MSGraphContext): <specify the role of iTenant>
+      //	iForceClear (boolean - default value=0): <specify the role of iForceClear>
+      // Example:
+      // <Specify a usage example>
+      //
+      // Return value:
+      //	iClientId (ANSI string): <specify the role of iClientId>
+      //	iClientSecret (ANSI string): <specify the role of iClientSecret>
+      procedure MSGraph_GetAuthToken(iMSGraphContext is MSGraphContext,  iForceClear is boolean = false)
+      
+      OAuth2Params	is OAuth2Parameters
+      
+      TenantId		is string			= iMSGraphContext.vTenantId
+      OAuth2Params.ClientID				= iMSGraphContext.vClientID
+      OAuth2Params.ClientSecret			= iMSGraphContext.vClientSecret
+      OAuth2Params.AuthURL				= "https://login.microsoftonline.com/"+TenantId+"/oauth2/v2.0/authorize"
+      OAuth2Params.TokenURL				= "https://login.microsoftonline.com/"+TenantId+"/oauth2/v2.0/token"
+      OAuth2Params.Scope					= "User.Read Mail.Send Mail.ReadWrite offline_access"
+      OAuth2Params.RedirectionURL			= "http://localhost:5011"
+      
+      bufferMyToken	is Buffer
+      MyToken			is AuthToken
+      TokenPath		is string	= iMSGraphContext.vTokenPath
+      
+      IF iForceClear = true _AND_ fFileExist(TokenPath) THEN
+      	fDelete(TokenPath)
+      END
+      
+      WHEN EXCEPTION IN
+      	bufferMyToken = fLoadBuffer(TokenPath)
+      	Désérialise(MyToken,bufferMyToken,psdBinary)
+      	Logger_WriteToFile("Token deserializzato e correttamente recuperato!")
+      DO
+      	Logger_WriteToFile("Non è stato possibile recuperare il token da file! Deve essere richiesto!")
+      
+      	MyToken = AuthIdentify(OAuth2Params)
+      	Serialize(MyToken, bufferMyToken, psdBinary)
+      	fSaveBuffer(TokenPath, bufferMyToken)
+      
+      	Logger_WriteToFile("Nuovo token richiesto e serializzato!")
+      
+      	RESULT MyToken
+      END
+      
+      if NOT (MyToken.Valid) THEN
+      	Logger_WriteToFile("Token completamente scaduto. Un nuovo token deve essere richiesto!")
+      
+      	MyToken = AuthIdentify(OAuth2Params)
+      	Serialize(MyToken, bufferMyToken, psdBinary)
+      	fSaveBuffer(TokenPath, bufferMyToken)
+      
+      	Logger_WriteToFile("Nuovo token richiesto e serializzato!")
+      
+      	RESULT MyToken
+      END
+      
+      
+      IF (MyToken.DateExpiration -5 min < DateTimeLocalToUTC(SysDateTime())) _AND_
+      	MyToken.Refresh <> "" THEN
+      
+      	Logger_WriteToFile("Token prossimo alla scadenza!. Il token sara' aggiornato!")
+      	MyToken = AuthRefreshToken(MyToken)
+      
+      	IF MyToken.Valid THEN
+      		Serialize(MyToken, bufferMyToken, psdBinary)
+      		fSaveBuffer(TokenPath, bufferMyToken)
+      		Logger_WriteToFile("Token aggiornato e serializzato!")
+      	ELSE
+      		Logger_WriteToFile("Non è stato possibile aggiornare il token. Un nuovo token deve essere richiesto!")
+      
+      		MyToken = AuthIdentify(OAuth2Params)
+      		Serialize(MyToken, bufferMyToken, psdBinary)
+      		fSaveBuffer(TokenPath, bufferMyToken)
+      
+      		Logger_WriteToFile("Nuovo token richiesto e serializzato!")
+      	END
+      
+      	RESULT MyToken
+      END
+      
+      
+      
+      //IF MyToken.DateExpiration < DateTimeLocalToUTC(SysDateTime()) THEN
+      //
+      //	LogToFile("Token completamente scaduto. Un nuovo token deve essere richiesto!")
+      //
+      //	MyToken = AuthIdentify(OAuth2Params)
+      //	Serialize(MyToken, bufferMyToken, psdBinary)
+      //	fSaveBuffer(TokenPath, bufferMyToken)
+      //
+      //	LogToFile("Nuovo token richiesto e serializzato!")
+      //
+      //END
+      
+      
+      result MyToken
+     type : 458752
+   -
+     name : MSGraph_GetContext
+     procedure_id : 1783509303093596060
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_GetContext ()
+      //
+      // Parameters:
+      //	None
+      // Example:
+      // <Specify a usage example>
+      //
+      // Return value:
+      procedure MSGraph_GetContext()
+      //TODO: Validate MSGraphContext properties
+      return gMSGraphContext
+     type : 458752
+   -
+     name : GoogleApi_SendMessage
+     procedure_id : 1783509303093661596
+     type_code : 15
+     code : |1-
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] GoogleApi_SendMessage (<authToken> is AuthToken)
+      //
+      // Parameters:
+      //	authToken (AuthToken): 
+      // Example:
+      // <Specify a usage example>
+      //
+      //	myMessage (Email - default value=0): <specify the role of myMessage>
+      procedure GoogleApi_SendMessage(authToken is AuthToken)
+      
+      myMessage is Email
+      myMessage.Message	= "My email text"
+      myMessage.HTML		= "Message <p>Test message with attachments. <b>Arrived?</b></p>"
+      myMessage.Sender	= "yariel.re@gmail.com"
+      myMessage.Subject	= "Test: Microsoft Graph API"
+      myMessage.Recipient.Add("yariel.re@gmail.com")
+      myMessage.Recipient.Add("yrodriguez@orionedp.ch")
+      myMessage.Recipient.Add("soriboni@orionedp.ch")
+      
+      
+      sFile			is a string	= "c:\temp\test.png"
+      myAttachment	is an emailAttache
+      myAttachment.Name					= fExtractPath (sFile , fFileName + fExtension)
+      myAttachment.Content				= fLoadBuffer (sFile)
+      myAttachment.ContentType			= "image/png"
+      myAttachment.ContentDescription		= "An attached image"
+      myMessage.Attach.Add(myAttachment)
+      
+      sFile2			is a string	= "\\ORIONDOCU03\FR$\yrodriguez\Documents\000029_2025_01.pdf"
+      myAttachment2	is an emailAttache
+      myAttachment2.Name						= fExtractPath (sFile2, fFileName + fExtension)
+      myAttachment2.Content					= fLoadBuffer (sFile2)
+      myAttachment2.ContentType				= "application/pdf"
+      myAttachment2.ContentDescription		= "An attached pdf document"
+      myMessage.Attach.Add(myAttachment2)
+      
+      myMessage.BuildSource(emailOptionEncodeHeader)
+      
+      req				is httpRequest
+      req.ContentType	= "message/rfc822"
+      req.Method		= httpPost
+      req.URL			= "https://www.googleapis.com/upload/gmail/v1/users/me/messages/send?uploadType=media"
+      req.AuthToken	= authToken
+      req.Content 	= myMessage.Source
+      
+      HTTPresponse is httpResponse = HTTPSend(req)
+      
+      result HTTPresponse.StatusCode;
+     type : 458752
+   -
+     name : GoogleApi_Test
+     procedure_id : 1783509303093727132
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //GoogleApi_Test ()
+      //
+      // Parameters:
+      //	None
+      // Example:
+      // <Specify a usage example>
+      //
+      // Return value:
+      procedure GoogleApi_Test()
+      gGmailToken is AuthToken = GoogleApi_GetAuthToken("","", "gmailToken.row", True)
+      Trace("Gmail token: " + gGmailToken.Value)
+      gGmailSendCode is int = GoogleApi_SendMessage(gGmailToken)
+      Trace("Gmail sent status code: " + gGmailSendCode)
+      
+     type : 458752
+   -
+     name : MSGraph_Test
+     procedure_id : 1783509303093792668
+     type_code : 15
+     code : |1+
+      
+      procedure MSGraph_Test()
+      jsonData is string = fLoadText("msgraphcontext.json")
+      vMSGraphContext is MSGraphContext
+      Deserialize(vMSGraphContext, jsonData, psdJSON)
+      
+      MSGraph_SetContext(vMSGraphContext.vTenantId, vMSGraphContext.vClientID, vMSGraphContext.vClientSecret)
+      
+      vMSGraphContext  = MSGraph_GetContext()
+      vToken is AuthToken = MSGraph_GetAuthToken(vMSGraphContext)
+      
+      Trace(vToken.ExpirationDate)
+      
+      myMessage is Email
+      myMessage.Message	= "My email text"
+      myMessage.HTML		= "Message <p>Test message with attachments. <b>Arrived?</b></p>"
+      myMessage.Sender	= "yrodriguez@orionedp.ch"
+      myMessage.Subject	= "Test: Microsoft Graph API"
+      myMessage.Recipient.Add("yrodriguez@orionedp.ch")
+      //myMessage.Recipient.Add("edelgaudio@orionedp.ch")
+      
+      
+      //sFile			is a string	= "c:\temp\test.png"
+      //myAttachment	is an emailAttache
+      //myAttachment.Name					= fExtractPath (sFile , fFileName + fExtension)
+      //myAttachment.Content				= fLoadBuffer (sFile)
+      //myAttachment.ContentType			= "image/png"
+      //myAttachment.ContentDescription		= "An attached image"
+      //myMessage.Attach.Add(myAttachment)
+      //
+      //sfile2			is a string	= "c:\temp\fattura.pdf"
+      //myattachment2	is an emailattache
+      //myattachment2.name						= fextractpath (sfile2 , ffilename + fextension)
+      //myattachment2.content					= floadbuffer (sfile2)
+      //myattachment2.contenttype				= "application/pdf"
+      //myattachment2.contentdescription		= "an attached pdf document"
+      //myMessage.attach.add(myattachment2)
+      //
+      
+      MSGraph_SendMessage(vMSGraphContext, myMessage)
+      
+      vResultReadMe is MSGraphUserInfo =  MSGraph_ReadMe(vMSGraphContext)
+      
+      Info(vResultReadMe.sDisplayName)
+      
+      vResultMeMessages is MSGraphEmailMessageList =  MSGraph_ReadMessages(vMSGraphContext)
+      Info(vResultMeMessages.value.Count)
+      
+      vMessage is  MSGraphEmailMessage =  vResultMeMessages.value[2]
+      
+      vReadMessageResponse is MSGRaphSingleEmailMessage =  MSGraph_ReadMessage(vMSGraphContext, vMessage.sId)
+      
+      vReadMessageAttachmentsResult is MSGraphEmailMessageAttachmentList =  MSGraph_ReadMessageAttachments(vMSGraphContext, vMessage.sId)
+      
+      if vReadMessageAttachmentsResult.value.Count > 0 THEN
+      	Info(vReadMessageAttachmentsResult.value.Count)
+      	vResultSaveAttachment is string = MSGraph_SaveMessageAttachment(vReadMessageAttachmentsResult.value [1],fExeDir)
+      	Info(vResultSaveAttachment)
+      END
+      
+     type : 458752
+   -
+     name : MSGraph_ReadMe
+     procedure_id : 1783509303093858204
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_ReadMe (<iMSGraphContext> is MSGraphContext)
+      //
+      // Parameters:
+      //	iMSGraphContext (MSGraphContext):
+      // Example:
+      // <Specify a usage example>
+      //
+      procedure MSGraph_ReadMe(iMSGraphContext is MSGraphContext) : MSGraphUserInfo
+      
+      vToken is AuthToken = MSGraph_GetAuthToken(iMSGraphContext)
+      
+      wHttpRequest				is httpRequest
+      wHttpRequest.ContentType	= typeMimeText
+      wHttpRequest.Method			= httpGet
+      wHttpRequest.URL			= "https://graph.microsoft.com/v1.0/me"
+      wHttpRequest.AuthToken		= 	vToken // Authentication token
+      
+      wHttpResponse is httpResponse = HTTPSend(wHttpRequest)
+      
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      oDeserializedData is MSGraphUserInfo
+      IF NOT wHttpResponse.StatusCode = 200 THEN
+      	RETURN  oDeserializedData
+      END
+      
+      Deserialize(oDeserializedData, wHttpResponse.Content, psdJSON)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      RETURN oDeserializedData
+      
+      
+     type : 458752
+   -
+     name : MSGraph_ReadMessages
+     procedure_id : 1783509303093923740
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_ReadMessages (<iToken> is AuthToken)
+      //
+      // Parameters:
+      //	iToken (AuthToken):
+      // Example:
+      // <Specify a usage example>
+      //
+      procedure MSGraph_ReadMessages(iMSGraphContext is MSGraphContext)
+      //GET https://graph.microsoft.com/v1.0/me/messages?$top=50&$select=receivedDateTime,id,sender,subject,body,isRead
+      //GET https://graph.microsoft.com/v1.0/users/{user-id}/messages
+      
+      vToken is AuthToken = MSGraph_GetAuthToken(iMSGraphContext)
+      
+      wHttpRequest				is httpRequest
+      wHttpRequest.ContentType	= typeMimeText
+      wHttpRequest.Method			= httpGet
+      wHttpRequest.URL			= "https://graph.microsoft.com/v1.0/me//mailFolders/inbox/messages" //?$top=2
+      wHttpRequest.AuthToken	= 	vToken // Authentication token
+      
+      wHttpResponse is httpResponse = HTTPSend(wHttpRequest)
+      
+      Trace(wHttpResponse.Content)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      oDeserializedData is MSGraphEmailMessageList
+      IF NOT wHttpResponse.StatusCode = 200 THEN
+      	RETURN  oDeserializedData
+      END
+      
+      Deserialize(oDeserializedData, wHttpResponse.Content, psdJSON)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      RETURN oDeserializedData
+      
+      
+     type : 458752
+   -
+     name : MSGraph_ReadMessage
+     procedure_id : 1783509303093989276
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_ReadMessage (<iMSGraphContext> is MSGraphContext, <iMessageId> is string)
+      //
+      // Parameters:
+      //	iMSGraphContext (MSGraphContext):
+      //	iMessageId (ANSI string): <specify the role of iMessageId>
+      // Example:
+      // <Specify a usage example>
+      //
+      procedure MSGraph_ReadMessage(iMSGraphContext is MSGraphContext, iMessageId is string)
+      //GET https://graph.microsoft.com/v1.0/me/messages?$top=50&$select=receivedDateTime,id,sender,subject,body,isRead
+      //GET https://graph.microsoft.com/v1.0/users/{user-id}/messages
+      
+      vToken is AuthToken = MSGraph_GetAuthToken(iMSGraphContext)
+      
+      wHttpRequest				is httpRequest
+      wHttpRequest.ContentType	= typeMimeText
+      wHttpRequest.Method			= httpGet
+      wHttpRequest.URL			= "https://graph.microsoft.com/v1.0/me/messages/"+iMessageId
+      wHttpRequest.AuthToken	= 	vToken // Authentication token
+      
+      wHttpResponse is httpResponse = HTTPSend(wHttpRequest)
+      
+      Trace(wHttpResponse.Content)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      oDeserializedData is MSGRaphSingleEmailMessage
+      IF NOT wHttpResponse.StatusCode = 200 THEN
+      	RETURN  oDeserializedData
+      END
+      
+      Deserialize(oDeserializedData, wHttpResponse.Content, psdJSON)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      RETURN oDeserializedData
+      
+      
+     type : 458752
+   -
+     name : MSGraph_ReadMessageAttachments
+     procedure_id : 1783509303094054812
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_ReadMessageAttachments (<iMSGraphContext> is MSGraphContext, <iMessageId> is string)
+      //
+      // Parameters:
+      //	iMSGraphContext (MSGraphContext):
+      //	iMessageId (ANSI string): <specify the role of iMessageId>
+      // Example:
+      // <Specify a usage example>
+      //
+      procedure MSGraph_ReadMessageAttachments(iMSGraphContext is MSGraphContext, iMessageId is string)
+      //GET https://graph.microsoft.com/v1.0/me/messages?$top=50&$select=receivedDateTime,id,sender,subject,body,isRead
+      //GET https://graph.microsoft.com/v1.0/users/{user-id}/messages
+      
+      vToken is AuthToken = MSGraph_GetAuthToken(iMSGraphContext)
+      
+      wHttpRequest				is httpRequest
+      wHttpRequest.ContentType	= typeMimeText
+      wHttpRequest.Method			= httpGet
+      wHttpRequest.URL			= "https://graph.microsoft.com/v1.0/me/messages/"+iMessageId+"/attachments"
+      wHttpRequest.AuthToken		= 	vToken // Authentication token
+      
+      wHttpResponse is httpResponse = HTTPSend(wHttpRequest)
+      
+      Trace(wHttpResponse.Content)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      oDeserializedData is MSGraphEmailMessageAttachmentList
+      IF NOT wHttpResponse.StatusCode = 200 THEN
+      	RETURN  oDeserializedData
+      END
+      
+      Deserialize(oDeserializedData, wHttpResponse.Content, psdJSON)
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      END
+      
+      RETURN oDeserializedData
+      
+      
+     type : 458752
+   -
+     name : MSGraph_SaveMessageAttachment
+     procedure_id : 1783509303094120348
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_SaveMessageAttachment (<iAttachment> is MSGraphEmailMessageAttachment, <iDestinationFolder> is string)
+      //
+      // Parameters:
+      //	iAttachment (MSGraphEmailMessageAttachment):
+      //	iDestinationFolder (ANSI string): <specify the role of iDestinationFolder>
+      // Example:
+      // <Specify a usage example>
+      //
+      procedure MSGraph_SaveMessageAttachment(iAttachment is MSGraphEmailMessageAttachment, iDestinationFolder is string)
+      if iAttachment = Null THEN
+      	result ""
+      END
+      
+      if iDestinationFolder ~= "" or iDestinationFolder = Null THEN
+      	RESULT ""
+      END
+      
+      iAttachmentFullFilePath is string	= CompleteDir(iDestinationFolder) +  iAttachment.sName
+      iAttachmentBuffer is buffer = iAttachment.sContentBytes
+      fSaveBuffer(iAttachmentFullFilePath, iAttachmentBuffer.Decode(encodeBASE64))
+      IF ErrorOccurred THEN
+      	ErrorPropagate(ErrorInfo(errCode), ErrorInfo(errMessage))
+      	result ""
+      END
+      
+      result iAttachmentFullFilePath
+      
+      
+      
+      
+      
+      
+      
+     type : 458752
+   -
+     name : MSGraph_SetContext
+     procedure_id : 1783509303094185884
+     type_code : 15
+     code : |1+
+      // Summary: <specify the procedure action>
+      // Syntax:
+      //[ <Result> = ] MSGraph_SetContext (<vTenantId> is string, <vClientID> is string, <vClientSecret> is string)
+      //
+      // Parameters:
+      //	vTenantId (ANSI string): <specify the role of vTenantId>
+      //	vClientID (ANSI string): <specify the role of vClientID>
+      //	vClientSecret (ANSI string): <specify the role of vClientSecret>
+      // Example:
+      // <Specify a usage example>
+      //
+      // Return value:
+      //	iCurrentSoc (ANSI string - default value=""): <specify the role of iCurrentSoc>
+      procedure MSGraph_SetContext(vTenantId is string, vClientID is string, vClientSecret is string)
+      //TODO: Validate all input properties before set
+      gMSGraphContext.vTenantId = vTenantId
+      gMSGraphContext.vClientID		= vClientID
+      gMSGraphContext.vClientSecret	= vClientSecret
+      gMSGraphContext.vTokenPath = fExeDir() + "\MSAuthToken.raw";
+      RESULT True
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : HgAAAB4AAADXPUOq6bQdTI/fs1mC0I6nimWl2G84EsAbne5i32IM05uoRA==
+  original_name : GlobalProcedures1
+resources :
+ string_res :
+  identifier : 0x15c36a760014c428
+  internal_properties : HgAAAB4AAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : HgAAAB4AAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
