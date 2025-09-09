@@ -52,3 +52,10 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+Exe
+Svg_V29_20250425_1053
+Backup
+msgraphcontext.json
+desktop.ini
+WinDevMSGraphSDK.cpl
